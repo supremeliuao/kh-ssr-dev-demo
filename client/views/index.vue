@@ -1,7 +1,6 @@
 <template>
   <div class="kh-index">
     kinghiee ssr test
-
     <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
   </div>
 </template>

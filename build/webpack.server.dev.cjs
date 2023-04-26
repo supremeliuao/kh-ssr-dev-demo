@@ -1,6 +1,6 @@
 const { resolve: RESOLVE } = require('path');
 const { merge: MERGE } = require('webpack-merge');
-const WEBPACK_BASE_CONFIG = require('./webpack.base');
+const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 const { VueLoaderPlugin: VUELOADERPLUGIN } = require('vue-loader');
 const VUESERVERPlUGINSSR = require('vue-server-renderer/server-plugin')
 const NODEEETERNALS = require('webpack-node-externals');
