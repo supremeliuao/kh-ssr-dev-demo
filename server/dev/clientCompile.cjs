@@ -5,7 +5,7 @@ module.exports = function clientCompile(clientConfig, clientManifestCb) {
 
     // 向客户端 webpack 修改配置
     clientConfig.entry.app = [ 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true', clientConfig.entry.app ];
-    clientConfig.output.filename = '[name].[contenthash:6].js';
+    clientConfig.output.filename = '[name]_[contenthash:8].js';
     clientConfig.plugins.push(
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
@@ -35,7 +35,7 @@ module.exports = function clientCompile(clientConfig, clientManifestCb) {
         if (stats.errors.length) return;
         console.log('\n客户端更新...\n');
         let manifestContent = devMiddleware.context.outputFileSystem.readFileSync(
-            path.resolve(clientConfig.output.path, 'src/vue-ssr-client-manifest.json'),
+            path.resolve(clientConfig.output.path, 'vue-ssr-client-manifest.json'),
             'utf-8'
         );
         

@@ -22,7 +22,7 @@ module.exports = function serverCompile(
         // 获取服务端bundle文件路径
         let bundlePath = path.resolve(
             serverConfig.output.path,
-            'src/vue-ssr-server-bundle.json'
+            'vue-ssr-server-bundle.json'
         );
 
         serverBundleCb(JSON.parse(mfs.readFileSync(bundlePath, 'utf-8')))

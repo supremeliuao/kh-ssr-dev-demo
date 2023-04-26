@@ -1,10 +1,10 @@
-import { createApp } from './app'
+import { createApp } from './app';
 
 export default context => {
   return new Promise((resolve, reject) => {
-    const { app, router, store } = createApp()
-
-    router.push(context.url)
+    const { app, router, store } = createApp();
+    router.push(context.url);
+    context.meta = app.$meta(); // 服务端挂载 meta
 
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents()
@@ -26,9 +26,9 @@ export default context => {
         // 当我们将状态附加到上下文，
         // 并且 `template` 选项用于 renderer 时，
         // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。
-        context.state = store.state
+        context.state = store.state;
 
-        resolve(app)
+        resolve(app);
       }).catch(reject)
     }, reject)
   })
