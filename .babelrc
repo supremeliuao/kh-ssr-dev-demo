@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "useBuiltIns": "usage", // 根据配置的浏览器，以及代码中用到的API进行polyfill，实现按需添加
+        "corejs": {
+          "version": "3.18.1"
+        },
+        "debug":false// 1.目标环境 2.启用的transforms 3.启用的plugins 4.启用的polyfills
+      }
+    ]
+  ]
+}

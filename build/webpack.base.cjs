@@ -1,4 +1,7 @@
 const { resolve: RESOLVE } = require('path');
+// const FORK_TS_CHECKER_WEBPACK_PLUGIN = require('fork-ts-checker-webpack-plugin');
+// const FORK_TS_CHECKER_NOTIFIER_WEBPACK_PLUGIN = require('fork-ts-checker-notifier-webpack-plugin');
+// const STYLELINT_PLUGIN = require('stylelint-webpack-plugin');
 
 module.exports = {
     module: {
@@ -7,29 +10,47 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
+            // {
+            //   test: /\.(ts|tsx)?$/,
+            //   exclude: /node_modules/,
+            //   loader: 'ts-loader',
+            //   options: {
+            //     appendTsSuffixTo: [/\.vue$/],
+            //     transpileOnly: true, //关闭类型检查，即只进行转译
+            //   },
+            // },
             {
-                test: /\.less$/i,
-                exclude: /node_modules/,
-                use: [
-                  'vue-style-loader',
-                  { loader: 'css-loader', options: { importLoaders: 1 } },
-                  'postcss-loader',
-                  'less-loader',
-                ],
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    {
-                      loader: 'style-loader',
-                      options: {},
-                    },
-                    {
-                      loader: 'css-loader',
-                      options: { importLoaders: 1 }
-                    },
+              oneOf: [
+                {
+                  test: /\.(js|jsx)$/,
+                  exclude: /node_modules/,
+                  loader: 'babel-loader',
+                },
+                {
+                  test: /\.less$/i,
+                  exclude: /node_modules/,
+                  use: [
+                    'vue-style-loader',
+                    { loader: 'css-loader', options: { importLoaders: 1 } },
                     'postcss-loader',
-                ],
+                    'less-loader',
+                  ],
+                },
+                {
+                  test: /\.css$/i,
+                  use: [
+                      {
+                        loader: 'style-loader',
+                        options: {},
+                      },
+                      {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 }
+                      },
+                      'postcss-loader',
+                  ],
+                },
+              ]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -70,9 +91,28 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.ts', '.vue', '.json'],
+        mainFields: ['browser', 'module', 'main'], // 优化
+        extensions: ['.js', '.ts', '.vue', '.json', '.tsx'],
         alias: {
             '@client':RESOLVE(__dirname,'../client')
         }
     },
+    // plugins: [
+    //   new STYLELINT_PLUGIN(
+    //     {
+    //       files: './client/**/*.{vue,less,css}',
+    //       extensions: ['vue', 'less', 'css']
+    //     }
+    //   ),
+    //   new FORK_TS_CHECKER_WEBPACK_PLUGIN({
+    //     eslint: {
+    //       files: './client/**/*.{vue,ts,tsx,js,jsx}',
+    //     },
+    //   }),
+    //   new FORK_TS_CHECKER_NOTIFIER_WEBPACK_PLUGIN({
+    //     title: 'TypeScript',
+    //     excludeWarnings: false,
+    //     skipSuccessful: true,
+    //   })
+    // ]
 };

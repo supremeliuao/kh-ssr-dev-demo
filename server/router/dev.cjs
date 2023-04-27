@@ -12,7 +12,7 @@ let tempWatch = require('../dev/tempWatch.cjs');
 
 let renderer;
 
-const devServer = (cb) => {
+const devServerSetup = (cb) => {
     let clientManifest, serverBundle, readyResolve, templateContent;
 
     templateContent = FS.readFileSync(templatePath, 'utf-8');
@@ -21,7 +21,7 @@ const devServer = (cb) => {
 
     // 更新客户端和服务端内容
     let updateClientAndServer = () => {
-        
+
         // 只有构建清单文件都存在时，执行更新操作
         if(clientManifest && serverBundle) {
             readyResolve(); // 把promise resolve掉
@@ -46,7 +46,7 @@ const devServer = (cb) => {
     })
 
     ROUTER.use(devMiddleware);
-    ROUTER.use(hotMiddleware); 
+    ROUTER.use(hotMiddleware);
 
     // 服务端 编译
     serverCompile(serverConfig, (serverBundleContent) => {
@@ -57,7 +57,7 @@ const devServer = (cb) => {
     return readyPromise;
 }
 
-let devServerPromise = devServer((serverBundle, options) => {
+let devServerPromise = devServerSetup((serverBundle, options) => {
     renderer = createBundleRenderer(serverBundle, Object.assign(options, {
         runInNewContext: false,
     }))

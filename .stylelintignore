@@ -1,0 +1,13 @@
+
+*.min.css
+*.js
+*.jpg
+*.jpeg
+*.png
+*.svg
+*.woff
+
+/tests/
+/dist/
+/build/
+/docs/

@@ -13,12 +13,12 @@ module.exports = function serverCompile(
     serverCompiler.watch({ ignored: /node_modules/, }, (err, stats) => {
         if (err) throw err;
         stats = stats.toJson();
-    
+
         // 有错误后续不执行
         if (stats.errors.length) return;
-    
+
         console.log('\n服务端更新...\n');
-    
+
         // 获取服务端bundle文件路径
         let bundlePath = path.resolve(
             serverConfig.output.path,
