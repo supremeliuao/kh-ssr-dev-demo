@@ -1,12 +1,13 @@
-const SERVER = require('express')();
-const FAVICON_ROUTER = require('./router/favicon.cjs');
-const SSRROUTER = require('./router/dev.cjs');
+const APP = require('express')();
+const ENV = require('./config/env.cjs');
+const FAVICON_ROUTER = require('./routes/favicon.cjs');
 const PORT = 8000;
 
-SERVER.use(FAVICON_ROUTER); // icon 图标
+APP.use(FAVICON_ROUTER); // icon 图标
 
-SERVER.use(SSRROUTER); // ssr 路由
+//根据环境变量使用不同环境配置
+APP.use(require(ENV.router));
 
-SERVER.listen(PORT,() => {
+APP.listen(PORT,() => {
     console.log(`app listening at port ${PORT}`);
 });

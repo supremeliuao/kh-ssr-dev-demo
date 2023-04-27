@@ -26,30 +26,6 @@ module.exports = {
                   exclude: /node_modules/,
                   loader: 'babel-loader',
                 },
-                {
-                  test: /\.less$/i,
-                  exclude: /node_modules/,
-                  use: [
-                    'vue-style-loader',
-                    { loader: 'css-loader', options: { importLoaders: 1 } },
-                    'postcss-loader',
-                    'less-loader',
-                  ],
-                },
-                {
-                  test: /\.css$/i,
-                  use: [
-                      {
-                        loader: 'style-loader',
-                        options: {},
-                      },
-                      {
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 }
-                      },
-                      'postcss-loader',
-                  ],
-                },
               ]
             },
             {

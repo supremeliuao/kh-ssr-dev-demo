@@ -13,6 +13,9 @@ export default {
       name: 'description',
       content: 'my standard description',
     }]
+  },
+  mounted() {
+    console.log('nihao ---- ceshi');
   }
 }
 </script>

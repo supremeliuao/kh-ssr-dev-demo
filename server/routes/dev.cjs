@@ -67,12 +67,12 @@ let devServerPromise = devServerSetup((serverBundle, options) => {
 ROUTER.get('*', (req, res) => {
     const context = {
         url: req.url
-    }
+    };
     devServerPromise.then(() => {
         renderer.renderToString(context).then(html => {
-            res.send(html)
+            res.send(html);
         }).catch(err => {
-            console.log('err',req.url,err)
+            console.log('err',req.url,err);
         })
     })
 })

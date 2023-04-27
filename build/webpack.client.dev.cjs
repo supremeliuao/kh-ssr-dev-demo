@@ -13,6 +13,38 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
         path: RESOLVE(__dirname, '../dist'),
         publicPath: '/'
     },
+    module: {
+        rules: [
+            {
+                oneOf: [
+                    {
+                        test: /\.css$/i,
+                        use: [
+                            {
+                                loader: 'style-loader',
+                                options: {},
+                            },
+                            {
+                                loader: 'css-loader',
+                                options: { importLoaders: 1 }
+                            },
+                            'postcss-loader',
+                        ],
+                    },
+                    {
+                        test: /\.less$/i,
+                        exclude: /node_modules/,
+                        use: [
+                            'vue-style-loader',
+                            { loader: 'css-loader', options: { importLoaders: 1 } },
+                            'postcss-loader',
+                            'less-loader',
+                        ],
+                    },
+                ]
+            }
+        ]
+    },
     plugins: [
         new VUELOADERPLUGIN(),
         new VUESSRCLIENTPLUGIN({
