@@ -6,7 +6,7 @@ module.exports = function serverCompile(
     serverConfig,
     serverBundleCb
 ) {
-    let serverCompiler = webpack(serverConfig); 
+    let serverCompiler = webpack(serverConfig);
     let mfs = new MFS();
     serverCompiler.outputFileSystem = mfs; // 把 webpack 默认的普通文件系统更换为内存文件系统
 

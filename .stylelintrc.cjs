@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'order/properties-order': [sortOrderSmacss()], // 添加sort-order
     'plugin/selector-bem-pattern': {
-      componentName: 'eo',// 定义组件名字规则
+      componentName: 'kh',// 定义组件名字规则
       componentSelectors: {
         initial: '^\\.{componentName}',// 定义BEM类名匹配方式 参考网站https://github.com/potherca-blog/BEM-Regex
         // combined: '^\\.combined-{componentName}-[a-z]+$',

@@ -1,7 +1,9 @@
 <template>
   <div class="kh-index">
-    kinghiee ssr test
-    <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
+    <div class="kh-index__center">
+      kinghiee
+      <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
+    </div>
   </div>
 </template>
 
@@ -22,6 +24,12 @@ export default {
 
 <style scoped lang="less">
   .kh-index {
-    border: 1px solid red;
+    display: grid;
+    height: 100vh;
+    place-content: center;
+
+    &__center {
+      border: 1px solid red;
+    }
   }
 </style>
