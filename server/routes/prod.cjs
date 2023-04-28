@@ -2,18 +2,16 @@ const SERVER = require('express');
 const ROUTER = SERVER.Router();
 const FS = require('fs');
 const PATH = require('path');
-const SERVER_BUNDLE_PATH = PATH.resolve(__dirname, '../../dist/vue-ssr-server-bundle.json'); // 指定serverBundle文件路径
-const CLIENT_MAINFEST_PATH = PATH.resolve(__dirname, '../../dist/vue-ssr-client-manifest.json'); // 指定clientMainfest文件路径
+const SERVER_BUNDLE_PATH = require(PATH.resolve(__dirname, '../../dist/vue-ssr-server-bundle.json')); // 指定serverBundle文件路径
+const CLIENT_MAINFEST_PATH = require(PATH.resolve(__dirname, '../../dist/vue-ssr-client-manifest.json')); // 指定clientMainfest文件路径
 const TEMPLATE_PATH = PATH.resolve(__dirname, '../server.template.html');
 const TEMPLATE_CONTENT= FS.readFileSync(TEMPLATE_PATH, { encoding: 'utf-8'}); // 获取TEMPLATE内容
-const SERVER_BUNDLE_CONTENT = FS.readFileSync(SERVER_BUNDLE_PATH, { encoding: 'utf-8'});
-const CLIENT_MAINFEST_CONTENT = FS.readFileSync(CLIENT_MAINFEST_PATH, { encoding: 'utf-8'});
 let { createBundleRenderer } = require('vue-server-renderer');
 
-const RENDERER = createBundleRenderer(SERVER_BUNDLE_CONTENT, {
+const RENDERER = createBundleRenderer(SERVER_BUNDLE_PATH, {
     runInNewContext: false, // 推荐
     template: TEMPLATE_CONTENT, // 页面模板
-    clientManifest: CLIENT_MAINFEST_CONTENT // 客户端构建 manifest
+    clientManifest: CLIENT_MAINFEST_PATH // 客户端构建 manifest
 });
 
 ROUTER.use(SERVER.static(PATH.resolve(__dirname, '../../dist')));
