@@ -1,10 +1,11 @@
 const { resolve: RESOLVE } = require('path');
 const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
 const { merge: MERGE } = require('webpack-merge');
-const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 const { VueLoaderPlugin: VUELOADERPLUGIN } = require('vue-loader');
 const VUESSRCLIENTPLUGIN = require('vue-server-renderer/client-plugin')
-
+const TERSER_PLUGIN = require("terser-webpack-plugin");
+const CSS_MINIMIZER_PLUGIN = require("css-minimizer-webpack-plugin");
+const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 
 module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     mode: 'production',
@@ -45,6 +46,7 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     },
     optimization:{
         minimize:true,// 使用TerserPlugin压缩
+        minimizer:[new TERSER_PLUGIN(),new CSS_MINIMIZER_PLUGIN({parallel: 4})] // 压缩js、css
     },
     plugins: [
         new VUELOADERPLUGIN(),

@@ -33,7 +33,7 @@ module.exports = function clientCompile(clientConfig, clientManifestCb) {
 
         // 有错误后续不生成 manifest 文件
         if (stats.errors.length) return;
-        console.log('\n客户端更新...\n');
+        console.log('\nclient update...\n');
         let manifestContent = devMiddleware.context.outputFileSystem.readFileSync(
             path.resolve(clientConfig.output.path, 'vue-ssr-client-manifest.json'),
             'utf-8'

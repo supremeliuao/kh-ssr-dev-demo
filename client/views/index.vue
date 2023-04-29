@@ -1,7 +1,7 @@
 <template>
-  <div class="kh-index">
-    <div class="kh-index__center">
-      kinghiee
+  <div class="kh-idx">
+    <div class="kh-idx__center">
+      kinghiee 修改1111
       <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
     </div>
   </div>
@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .kh-index {
+/** @define kh-idx */
+  .kh-idx {
     display: grid;
     height: 100vh;
     place-content: center;

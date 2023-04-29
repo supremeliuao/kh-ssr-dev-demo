@@ -17,7 +17,7 @@ module.exports = function serverCompile(
         // 有错误后续不执行
         if (stats.errors.length) return;
 
-        console.log('\n服务端更新...\n');
+        console.log('\nserver update...\n');
 
         // 获取服务端bundle文件路径
         let bundlePath = path.resolve(
@@ -25,6 +25,6 @@ module.exports = function serverCompile(
             'vue-ssr-server-bundle.json'
         );
 
-        serverBundleCb(JSON.parse(mfs.readFileSync(bundlePath, 'utf-8')))
+        serverBundleCb(JSON.parse(mfs.readFileSync(bundlePath, 'utf-8')));
     });
 }
