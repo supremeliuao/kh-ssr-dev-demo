@@ -1,6 +1,6 @@
 {
   "include": ["client/*", "client/**/*", "tests"],
-  "exclude": ["node_modules", "client/assets/"],
+  "exclude": ["node_modules", "client/assets/", "stylelint-config-property-sort-order-smacss"],
   "compilerOptions": {
     "baseUrl": ".", // 设置baseUrl告诉编译器到哪里去查找模块。 所有非相对模块导入都会被当做相对于baseUrl。
     "paths": { // 设置路径映射

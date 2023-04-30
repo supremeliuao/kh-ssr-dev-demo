@@ -3,12 +3,13 @@ const { merge: MERGE } = require('webpack-merge');
 const { VueLoaderPlugin: VUELOADERPLUGIN } = require('vue-loader');
 const VUESSRCLIENTPLUGIN = require('vue-server-renderer/client-plugin');
 const STYLELINT_PLUGIN = require('stylelint-webpack-plugin');
+const FORK_TS_CHECKER_WEBPACK_PLUGIN = require('fork-ts-checker-webpack-plugin');
 const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 
 module.exports = MERGE(WEBPACK_BASE_CONFIG, {
   mode: 'development',
   target: 'web', // web环境
-  entry: { app: RESOLVE(__dirname, '../client/entry-client.js') },
+  entry: { app: RESOLVE(__dirname, '../client/entry-client.ts') },
   output: {
     filename: '[name]_[contenthash:8].js',
     path: RESOLVE(__dirname, '../dist'),
@@ -91,5 +92,10 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
           extensions: ['vue', 'less', 'css']
         }
       ),
+      new FORK_TS_CHECKER_WEBPACK_PLUGIN({
+        typescript: {
+          configFile: 'tsconfig.json'
+        }
+      }),
   ],
 });

@@ -9,7 +9,7 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
   mode: 'development',
   target: 'node',
   devtool: 'eval-cheap-source-map',
-  entry: RESOLVE(__dirname, '../client/entry-server.js'),
+  entry: RESOLVE(__dirname, '../client/entry-server.ts'),
   output: {
     filename: 'server-bundle.js',
     path: RESOLVE(__dirname, '../dist'),

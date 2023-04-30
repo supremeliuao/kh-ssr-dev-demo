@@ -11,10 +11,10 @@ Vue.mixin({
      * @param {*} next
      */
     beforeRouteUpdate(to, from, next) {
-        const { asyncData } = this.$options
+        const { asyncData } = (this as any).$options
         if (asyncData) {
             asyncData({
-                store: this.$store,
+                store: (this as any).$store,
                 route: to
             }).then(next).catch(next)
         } else {
@@ -23,29 +23,29 @@ Vue.mixin({
     }
 });
 
-if (window.__INITIAL_STATE__) {
-  store.replaceState(window.__INITIAL_STATE__);
+if ((window as any).__INITIAL_STATE__) {
+  store.replaceState((window as any).__INITIAL_STATE__);
 }
 
 router.onReady(() => {
-    router.beforeResolve((to, from, next) => {
-        const matched = router.getMatchedComponents(to);
-        const prevMatched = router.getMatchedComponents(from);
+  router.beforeResolve((to, from, next) => {
+    const matched = router.getMatchedComponents(to);
+    const prevMatched = router.getMatchedComponents(from);
 
-        let diffed = false;
-        const activated = matched.filter((c, i) => {
-            return diffed || (diffed = (prevMatched[i] !== c))
-        })
-        if (!activated.length) {
-            return next();
-        }
-        Promise.all(activated.map(c => {
-            if (c.asyncData) {
-                return c.asyncData({ store, route: to })
-            }
-        })).then(() => {
-            next();
-        }).catch(next)
+    let diffed = false;
+    const activated = matched.filter((c, i) => {
+      return diffed || (diffed = (prevMatched[i] !== c))
     })
-    app.$mount('#app')
+    if (!activated.length) {
+      return next();
+    }
+    Promise.all(activated.map((c: any) => {
+      if (c.asyncData) {
+        return c.asyncData({ store, route: to });
+      }
+    })).then(() => {
+      next();
+    }).catch(next)
+  })
+  app.$mount('#app');
 })

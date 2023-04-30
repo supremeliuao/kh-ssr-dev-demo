@@ -1,8 +1,7 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <div>{{ message }}</div>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
@@ -10,7 +9,7 @@ import Component from 'vue-class-component'
 @Component({
   metaInfo() {
     return {
-      title: 'kh-index',
+      title: 'kh-full',
       meta: [
         {
           name: 'description',
@@ -24,8 +23,8 @@ import Component from 'vue-class-component'
     };
   },
 })
-export default class KhApp extends Vue {
+export default class HelloWorld extends Vue {
+  // Declared as component data
+  message = 'Hello World!'
 }
 </script>
-<style lang="less" scoped>
-</style>

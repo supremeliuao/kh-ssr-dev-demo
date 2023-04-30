@@ -10,20 +10,20 @@ Vue.use(VueMeta, { ssrAppId: 1 });
 
 // 简单工厂模式创建vue实例
 export function createApp() {
-    const router = createRouter();
-    const store = createStore();
+  const router = createRouter();
+  const store = createStore();
 
-    sync(store, router);
+  sync(store, router);
 
-    const app =  new Vue({
-        router,
-        store,
-        render: h => h(App),
-    })
+  const app =  new Vue({
+    router,
+    store,
+    render: h => h(App),
+  })
 
-    return {
-        app,
-        router,
-        store
-    }
+  return {
+    app,
+    router,
+    store
+  }
 };

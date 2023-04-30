@@ -1,6 +1,6 @@
 import { createApp } from './app';
 
-export default context => {
+export default (context: any): Promise<any> => {
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp();
     router.push(context.url);
@@ -13,7 +13,7 @@ export default context => {
       }
 
       // 对所有匹配的路由组件调用 `asyncData()`
-      Promise.all(matchedComponents.map(Component => {
+      Promise.all(matchedComponents.map((Component: any) => {
         if (Component.asyncData) {
           return Component.asyncData({
             store,

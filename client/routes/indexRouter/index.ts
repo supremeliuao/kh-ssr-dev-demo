@@ -1,7 +1,7 @@
 const INDEX_ROUTER = [
   {
-    path: '/full',
-    name: 'full',
+    path: '/',
+    name: 'index',
     component: () => import( /* webpackChunkName: "kh-index" */ '@client/views/index/index.vue'),
   },
 ];
