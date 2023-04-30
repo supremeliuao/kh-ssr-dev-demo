@@ -1,7 +1,8 @@
 const { resolve: RESOLVE } = require('path');
 const { merge: MERGE } = require('webpack-merge');
 const { VueLoaderPlugin: VUELOADERPLUGIN } = require('vue-loader');
-const VUESSRCLIENTPLUGIN = require('vue-server-renderer/client-plugin')
+const VUESSRCLIENTPLUGIN = require('vue-server-renderer/client-plugin');
+const STYLELINT_PLUGIN = require('stylelint-webpack-plugin');
 const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 
 module.exports = MERGE(WEBPACK_BASE_CONFIG, {
@@ -84,5 +85,11 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
       new VUESSRCLIENTPLUGIN({
         filename: 'vue-ssr-client-manifest.json'
       }),
+      new STYLELINT_PLUGIN(
+        {
+          files: './client/**/*.{vue,less,css}',
+          extensions: ['vue', 'less', 'css']
+        }
+      ),
   ],
 });

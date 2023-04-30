@@ -1,7 +1,6 @@
 const { resolve: RESOLVE } = require('path');
 // const FORK_TS_CHECKER_WEBPACK_PLUGIN = require('fork-ts-checker-webpack-plugin');
 // const FORK_TS_CHECKER_NOTIFIER_WEBPACK_PLUGIN = require('fork-ts-checker-notifier-webpack-plugin');
-const STYLELINT_PLUGIN = require('stylelint-webpack-plugin');
 
 module.exports = {
     module: {
@@ -110,12 +109,6 @@ module.exports = {
       maxAssetSize: 1572864,
     },
     plugins: [
-      new STYLELINT_PLUGIN(
-        {
-          files: './client/**/*.{vue,less,css}',
-          extensions: ['vue', 'less', 'css']
-        }
-      ),
       // new FORK_TS_CHECKER_WEBPACK_PLUGIN({
       //   eslint: {
       //     files: './client/**/*.{vue,ts,tsx,js,jsx}',

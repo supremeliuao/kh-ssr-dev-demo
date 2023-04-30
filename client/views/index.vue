@@ -30,7 +30,7 @@ export default {
     place-content: center;
 
     &__center {
-      border: 1px solid red;
+      border: .5px solid red;
     }
   }
 </style>
