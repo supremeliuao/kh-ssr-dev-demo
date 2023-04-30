@@ -7,7 +7,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+
 export default {
   metaInfo: {
     title: 'kinghiee-ssr-demo',

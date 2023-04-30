@@ -1,6 +1,5 @@
 const { resolve: RESOLVE } = require('path');
 // const FORK_TS_CHECKER_WEBPACK_PLUGIN = require('fork-ts-checker-webpack-plugin');
-// const FORK_TS_CHECKER_NOTIFIER_WEBPACK_PLUGIN = require('fork-ts-checker-notifier-webpack-plugin');
 
 module.exports = {
     module: {
@@ -9,15 +8,14 @@ module.exports = {
               test: /\.vue$/,
               loader: 'vue-loader'
             },
-            // {
-            //   test: /\.(ts|tsx)?$/,
-            //   exclude: /node_modules/,
-            //   loader: 'ts-loader',
-            //   options: {
-            //     appendTsSuffixTo: [/\.vue$/],
-            //     transpileOnly: true, //关闭类型检查，即只进行转译
-            //   },
-            // },
+            {
+              test: /\.(ts|tsx)?$/,
+              exclude: /node_modules/,
+              loader: 'ts-loader',
+              options: {
+                appendTsSuffixTo: [/\.vue$/]
+              },
+            },
             {
               oneOf: [
                 {
@@ -114,10 +112,5 @@ module.exports = {
       //     files: './client/**/*.{vue,ts,tsx,js,jsx}',
       //   },
       // }),
-      // new FORK_TS_CHECKER_NOTIFIER_WEBPACK_PLUGIN({
-      //   title: 'TypeScript',
-      //   excludeWarnings: false,
-      //   skipSuccessful: true,
-      // })
     ]
 };

@@ -9,5 +9,9 @@
         "debug":false// 1.目标环境 2.启用的transforms 3.启用的plugins 4.启用的polyfills
       }
     ]
+  ],
+  "plugins": [
+    ["@babel/proposal-decorators", { "legacy": true }],
+    ["@babel/proposal-class-properties", { "loose": true }]
   ]
 }
