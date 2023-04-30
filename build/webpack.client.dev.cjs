@@ -4,6 +4,7 @@ const { VueLoaderPlugin: VUELOADERPLUGIN } = require('vue-loader');
 const VUESSRCLIENTPLUGIN = require('vue-server-renderer/client-plugin');
 const STYLELINT_PLUGIN = require('stylelint-webpack-plugin');
 const FORK_TS_CHECKER_WEBPACK_PLUGIN = require('fork-ts-checker-webpack-plugin');
+const ESLINT_WEBPACK_PLUGIN = require('eslint-webpack-plugin');
 const WEBPACK_BASE_CONFIG = require('./webpack.base.cjs');
 
 module.exports = MERGE(WEBPACK_BASE_CONFIG, {
@@ -15,12 +16,12 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     path: RESOLVE(__dirname, '../dist'),
     publicPath: '/'
   },
-  cache: {
-    type: 'filesystem',
-    name: 'devClientCache-development',
-    idleTimeoutAfterLargeChanges: 1000,
-    maxAge: 604800, // 允许未使用的缓存留在文件系统缓存中的时间
-  },
+  // cache: {
+  //   type: 'filesystem',
+  //   name: 'devClientCache-development',
+  //   idleTimeoutAfterLargeChanges: 1000,
+  //   maxAge: 604800, // 允许未使用的缓存留在文件系统缓存中的时间
+  // },
   module: {
     rules: [
       {
@@ -60,6 +61,9 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     ]
   },
   optimization: {
+    usedExports: true,
+    concatenateModules: true,
+    minimize: true,
     splitChunks: {
       // 优化:代码分割
       chunks: 'all',
@@ -82,20 +86,23 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     },
   },
   plugins: [
-      new VUELOADERPLUGIN(),
-      new VUESSRCLIENTPLUGIN({
-        filename: 'vue-ssr-client-manifest.json'
-      }),
-      new STYLELINT_PLUGIN(
-        {
-          files: './client/**/*.{vue,less,css}',
-          extensions: ['vue', 'less', 'css']
-        }
-      ),
-      new FORK_TS_CHECKER_WEBPACK_PLUGIN({
-        typescript: {
-          configFile: 'tsconfig.json'
-        }
-      }),
+    new VUELOADERPLUGIN(),
+    new VUESSRCLIENTPLUGIN({
+      filename: 'vue-ssr-client-manifest.json'
+    }),
+    new STYLELINT_PLUGIN(
+      {
+        files: './client/**/*.{vue,less,css}',
+        extensions: ['vue', 'less', 'css']
+      }
+    ),
+    new FORK_TS_CHECKER_WEBPACK_PLUGIN({
+      typescript: {
+        configFile: 'tsconfig.json',
+      }
+    }),
+    new ESLINT_WEBPACK_PLUGIN({
+      extensions: ['vue', 'ts', 'js', 'tsx', 'jsx']
+    })
   ],
 });

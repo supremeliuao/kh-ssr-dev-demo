@@ -4,12 +4,12 @@ import indexRouter from './indexRouter';
 import fullRouter from './fullRouter';
 Vue.use(Router);
 
-export function createRouter(){
+export function createRouter() {
   return new Router({
-      mode:'history',
-      routes:[
-        ...indexRouter,
-        ...fullRouter
-      ]
-  })
+    mode: 'history',
+    routes: [
+      ...indexRouter,
+      ...fullRouter
+    ]
+  });
 }

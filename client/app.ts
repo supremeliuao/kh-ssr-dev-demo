@@ -19,11 +19,11 @@ export function createApp() {
     router,
     store,
     render: h => h(App),
-  })
+  });
 
   return {
     app,
     router,
     store
-  }
-};
+  };
+}

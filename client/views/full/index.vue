@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 @Component({
   metaInfo() {
@@ -24,7 +24,8 @@ import Component from 'vue-class-component'
   },
 })
 export default class HelloWorld extends Vue {
+
   // Declared as component data
-  message = 'Hello World!'
+  message = 'Hello World!';
 }
 </script>

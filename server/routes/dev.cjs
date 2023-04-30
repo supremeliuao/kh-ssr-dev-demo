@@ -13,48 +13,48 @@ let tempWatch = require('../dev/tempWatch.cjs');
 let renderer;
 
 const devServerSetup = (cb) => {
-    let clientManifest, serverBundle, readyResolve, templateContent;
+  let clientManifest, serverBundle, readyResolve, templateContent;
 
-    templateContent = FS.readFileSync(templatePath, 'utf-8');
+  templateContent = FS.readFileSync(templatePath, 'utf-8');
 
-    let readyPromise = new Promise(resolve => readyResolve = resolve );
+  let readyPromise = new Promise(resolve => readyResolve = resolve );
 
-    // 更新客户端和服务端内容
-    let updateClientAndServer = () => {
+  // 更新客户端和服务端内容
+  let updateClientAndServer = () => {
 
-        // 只有构建清单文件都存在时，执行更新操作
-        if(clientManifest && serverBundle) {
-            readyResolve(); // 把promise resolve掉
+    // 只有构建清单文件都存在时，执行更新操作
+    if(clientManifest && serverBundle) {
+        readyResolve(); // 把promise resolve掉
 
-            cb(serverBundle, {
-                template: templateContent,
-                clientManifest
-            })
-        }
-    };
+        cb(serverBundle, {
+          template: templateContent,
+          clientManifest
+        })
+    }
+  };
 
-    // 监听模板文件
-    tempWatch(templatePath, () => {
-        updateClientAndServer();
-    });
+  // 监听模板文件
+  tempWatch(templatePath, () => {
+    updateClientAndServer();
+  });
 
-    // 客户端 编译
-    let { devMiddleware, hotMiddleware} = clientCompile(
-        clientConfig, (clientManifestContent) => {
-        clientManifest = clientManifestContent;
-        updateClientAndServer();
-    })
+  // 客户端 编译
+  let { devMiddleware, hotMiddleware} = clientCompile(
+    clientConfig, (clientManifestContent) => {
+    clientManifest = clientManifestContent;
+    updateClientAndServer();
+  })
 
-    ROUTER.use(devMiddleware);
-    ROUTER.use(hotMiddleware);
+  ROUTER.use(devMiddleware);
+  ROUTER.use(hotMiddleware);
 
-    // 服务端 编译
-    serverCompile(serverConfig, (serverBundleContent) => {
-        serverBundle = serverBundleContent;
-        updateClientAndServer();
-    })
+  // 服务端 编译
+  serverCompile(serverConfig, (serverBundleContent) => {
+    serverBundle = serverBundleContent;
+    updateClientAndServer();
+  })
 
-    return readyPromise;
+  return readyPromise;
 }
 
 let devServerPromise = devServerSetup((serverBundle, options) => {

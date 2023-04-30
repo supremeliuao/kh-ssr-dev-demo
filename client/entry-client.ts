@@ -4,23 +4,25 @@ import Vue from 'vue';
 const { app, router, store } = createApp();
 
 Vue.mixin({
-    /**
+
+  /**
      * 路由更新触发组件内异步获取数据方法
      * @param {*} to
      * @param {*} from
      * @param {*} next
      */
-    beforeRouteUpdate(to, from, next) {
-        const { asyncData } = (this as any).$options
-        if (asyncData) {
-            asyncData({
-                store: (this as any).$store,
-                route: to
-            }).then(next).catch(next)
-        } else {
-            next()
-        }
+  beforeRouteUpdate(to, from, next) {
+    const { asyncData } = (this as any).$options;
+    if (asyncData) {
+      asyncData({
+        store: (this as any).$store,
+        route: to
+      }).then(next)
+        .catch(next);
+    } else {
+      next();
     }
+  }
 });
 
 if ((window as any).__INITIAL_STATE__) {
@@ -34,8 +36,8 @@ router.onReady(() => {
 
     let diffed = false;
     const activated = matched.filter((c, i) => {
-      return diffed || (diffed = (prevMatched[i] !== c))
-    })
+      return diffed || (diffed = (prevMatched[i] !== c));
+    });
     if (!activated.length) {
       return next();
     }
@@ -45,7 +47,8 @@ router.onReady(() => {
       }
     })).then(() => {
       next();
-    }).catch(next)
-  })
+    })
+      .catch(next);
+  });
   app.$mount('#app');
-})
+});

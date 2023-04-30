@@ -27,12 +27,14 @@ module.exports = function clientCompile(clientConfig, clientManifestCb) {
   clientCompiler.hooks.done.tap('done', stats => {
     stats = stats.toJson({stats:'errors-warnings'});
 
-    // 如果客户端编译完毕，有错误或者警告会打印到控制台
-    stats.errors.forEach(err => console.error(err.meassage));
-    stats.warnings.forEach(err => console.warn(err.meassage));
-
     // 有错误后续不生成 manifest 文件
-    if (stats.errors.length) return;
+    if (stats.errors.length) {
+      console.log('client errors');
+      stats.errors.forEach(err => console.error(err.meassage));
+      stats.warnings.forEach(err => console.warn(err.meassage));
+      return;
+    };
+
     console.log('\nclient update...\n');
     let manifestContent = devMiddleware.context.outputFileSystem.readFileSync(
         path.resolve(clientConfig.output.path, 'vue-ssr-client-manifest.json'),

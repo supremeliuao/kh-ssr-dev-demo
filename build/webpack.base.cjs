@@ -2,65 +2,66 @@ const { resolve: RESOLVE } = require('path');
 
 module.exports = {
   module: {
-      rules: [
-          {
-            test: /\.vue$/,
-            loader: 'vue-loader'
-          },
-          {
-            oneOf: [
-              {
-                test: /\.(ts|tsx)?$/,
-                exclude: /node_modules/,
-                loader: 'ts-loader',
-                options: {
-                  appendTsSuffixTo: [/\.vue$/]
+    rules: [
+        {
+          test: /\.vue$/,
+          exclude: /node_modules/,
+          loader: 'vue-loader'
+        },
+        {
+          oneOf: [
+            {
+              test: /\.(ts|tsx)?$/,
+              exclude: /node_modules/,
+              loader: 'ts-loader',
+              options: {
+                appendTsSuffixTo: [/\.vue$/],
+              },
+            },
+            {
+              test: /\.(js|jsx)$/,
+              exclude: /node_modules/,
+              loader: 'babel-loader',
+            },
+            {
+              test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+              type: 'asset', //自动地在 resource 和 inline 之间进行选择
+              generator: {
+                filename: 'assets/imgs/[name]_[contenthash:8][query][ext]',
+              },
+              parser: {
+                dataUrlCondition: {
+                  maxSize: 10 * 1024, // 10kb  指定大小 小于该值则使用inline模式
                 },
               },
-              {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
+            },
+            {
+              test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+              type: 'asset',
+              generator: {
+                filename: 'assets/videos/[name]_[contenthash:8][query][ext]',
               },
-              {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                type: 'asset', //自动地在 resource 和 inline 之间进行选择
-                generator: {
-                  filename: 'assets/imgs/[name]_[contenthash:8][query][ext]',
-                },
-                parser: {
-                  dataUrlCondition: {
-                    maxSize: 10 * 1024, // 10kb  指定大小 小于该值则使用inline模式
-                  },
+              parser: {
+                dataUrlCondition: {
+                  maxSize: 10 * 1024, // 10kb  指定大小
                 },
               },
-              {
-                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-                type: 'asset',
-                generator: {
-                  filename: 'assets/videos/[name]_[contenthash:8][query][ext]',
-                },
-                parser: {
-                  dataUrlCondition: {
-                    maxSize: 10 * 1024, // 10kb  指定大小
-                  },
+            },
+            {
+              test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+              type: 'asset',
+              generator: {
+                filename: 'assets/fonts/[name]_[contenthash:8][query][ext]',
+              },
+              parser: {
+                dataUrlCondition: {
+                  maxSize: 10 * 1024, // 10kb  指定大小
                 },
               },
-              {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                type: 'asset',
-                generator: {
-                  filename: 'assets/fonts/[name]_[contenthash:8][query][ext]',
-                },
-                parser: {
-                  dataUrlCondition: {
-                    maxSize: 10 * 1024, // 10kb  指定大小
-                  },
-                },
-              }
-            ]
-          },
-      ]
+            }
+          ]
+        },
+    ]
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // 优化

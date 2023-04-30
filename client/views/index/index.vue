@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="kh-idx">
     <div>
-      kinghiee 修改1111
+      kinghiee 修改s
       <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
     </div>
   </div>
@@ -29,10 +29,17 @@ import Component from 'vue-class-component';
   },
 })
 export default class KhIndex extends Vue {
-  message = 'Hello World!'
+  message = 'Hello World!';
   mounted() {
     console.log('mounted');
   }
 }
 </script>
+
+<style lang="less" scoped>
+/** @define kh-idx */
+.kh-idx {
+  border: 1px solid red;
+}
+</style>
 

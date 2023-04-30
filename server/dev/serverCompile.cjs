@@ -15,7 +15,14 @@ module.exports = function serverCompile(
     stats = stats.toJson();
 
     // 有错误后续不执行
-    if (stats.errors.length) return;
+    if (stats.errors.length) {
+      console.log('server errors');
+      stats.errors.forEach(err => console.error(err.meassage));
+      stats.warnings.forEach(err => console.warn(err.meassage));
+      return;
+    }
+
+    console.log('server compile success');
 
     console.log('\nserver update...\n');
 
