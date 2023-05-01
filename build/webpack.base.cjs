@@ -1,10 +1,12 @@
 const { resolve: RESOLVE } = require('path');
+const CLIENT_PATH = RESOLVE(__dirname, '../client');
 
 module.exports = {
   module: {
     rules: [
         {
           test: /\.vue$/,
+          include: CLIENT_PATH,
           exclude: /node_modules/,
           loader: 'vue-loader'
         },
@@ -12,6 +14,7 @@ module.exports = {
           oneOf: [
             {
               test: /\.(ts|tsx)?$/,
+              include: CLIENT_PATH,
               exclude: /node_modules/,
               loader: 'ts-loader',
               options: {
@@ -24,7 +27,9 @@ module.exports = {
               loader: 'babel-loader',
             },
             {
-              test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+              test: /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/,
+              include: CLIENT_PATH,
+              exclude: /node_modules/,
               type: 'asset', //自动地在 resource 和 inline 之间进行选择
               generator: {
                 filename: 'assets/imgs/[name]_[contenthash:8][query][ext]',
@@ -37,6 +42,8 @@ module.exports = {
             },
             {
               test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+              include: CLIENT_PATH,
+              exclude: /node_modules/,
               type: 'asset',
               generator: {
                 filename: 'assets/videos/[name]_[contenthash:8][query][ext]',
@@ -49,6 +56,8 @@ module.exports = {
             },
             {
               test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+              include: CLIENT_PATH,
+              exclude: /node_modules/,
               type: 'asset',
               generator: {
                 filename: 'assets/fonts/[name]_[contenthash:8][query][ext]',

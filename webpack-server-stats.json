@@ -1,1 +1,248 @@
-{"logging":{"webpack.Compilation":{"entries":[],"filteredEntries":32,"debug":false},"webpack.Compiler":{"entries":[],"filteredEntries":9,"debug":false},"webpack.FlagDependencyExportsPlugin":{"entries":[],"filteredEntries":4,"debug":false},"webpack.InnerGraphPlugin":{"entries":[],"filteredEntries":1,"debug":false},"webpack.SideEffectsFlagPlugin":{"entries":[],"filteredEntries":1,"debug":false},"webpack.FlagDependencyUsagePlugin":{"entries":[],"filteredEntries":2,"debug":false},"webpack.buildChunkGraph":{"entries":[],"filteredEntries":13,"debug":false},"webpack.SplitChunksPlugin":{"entries":[],"filteredEntries":4,"debug":false},"webpack.ModuleConcatenationPlugin":{"entries":[],"filteredEntries":8,"debug":false},"webpack.FileSystemInfo":{"entries":[],"filteredEntries":10,"debug":false}},"hash":"751acf0b39ad81b6fb81","version":"5.54.0","time":3878,"publicPath":"","outputPath":"/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/dist","assetsByChunkName":{"main":["server-bundle.js","main_4e6ca4a6.css"]},"assets":[{"type":"asset","name":"vue-ssr-server-bundle.json","size":41083,"emitted":true,"comparedForEmit":false,"cached":false,"info":{"size":41083},"chunkNames":[],"chunkIdHints":[],"auxiliaryChunkNames":[],"auxiliaryChunkIdHints":[],"related":{},"chunks":[],"auxiliaryChunks":[],"isOverSizeLimit":false}],"chunks":[{"rendered":true,"initial":true,"entry":true,"recorded":false,"size":12545,"sizes":{"javascript":6471,"css/mini-extract":1006,"runtime":5068},"names":["main"],"idHints":[],"runtime":["main"],"files":["server-bundle.js","main_4e6ca4a6.css"],"auxiliaryFiles":[],"hash":"a3b21785ff815539bf65","childrenByOrder":{},"id":179,"siblings":[],"parents":[],"children":[384],"origins":[{"module":"","moduleIdentifier":"","moduleName":"","loc":"main","request":"/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/client/entry-server.js"}]},{"rendered":true,"initial":false,"entry":false,"recorded":false,"size":13357.880000000001,"sizes":{"javascript":13133.880000000001,"css/mini-extract":224},"names":[],"idHints":[],"runtime":["main"],"files":["384.server-bundle.js","384_3ad30147.css"],"auxiliaryFiles":[],"hash":"616ce6b3bb2f24341857","childrenByOrder":{},"id":384,"siblings":[],"parents":[179],"children":[],"origins":[{"module":"/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/node_modules/babel-loader/lib/index.js!/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/client/router/index.js","moduleIdentifier":"/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/node_modules/babel-loader/lib/index.js!/Users/kh/Desktop/kh-project/kh-ssr-dev-demo/client/router/index.js","moduleName":"./client/router/index.js","loc":"9:23-51","request":"../views/index.vue","moduleId":null}]}],"filteredModules":48,"entrypoints":{"main":{"name":"main","chunks":[179],"assets":[{"name":"server-bundle.js","size":-1},{"name":"main_4e6ca4a6.css","size":-1}],"filteredAssets":0,"assetsSize":-2,"auxiliaryAssets":[],"filteredAuxiliaryAssets":0,"auxiliaryAssetsSize":0,"children":{},"childAssets":{},"isOverSizeLimit":false}},"namedChunkGroups":{"main":{"name":"main","chunks":[179],"assets":[{"name":"server-bundle.js","size":-1},{"name":"main_4e6ca4a6.css","size":-1}],"filteredAssets":0,"assetsSize":-2,"auxiliaryAssets":[],"filteredAuxiliaryAssets":0,"auxiliaryAssetsSize":0,"children":{},"childAssets":{},"isOverSizeLimit":false}},"errors":[],"errorsCount":0,"warnings":[],"warningsCount":0,"children":[]}
+{
+  "logging": {
+    "webpack.Compilation": {
+      "entries": [],
+      "filteredEntries": 32,
+      "debug": false
+    },
+    "webpack.Compiler": { "entries": [], "filteredEntries": 9, "debug": false },
+    "webpack.FlagDependencyExportsPlugin": {
+      "entries": [],
+      "filteredEntries": 4,
+      "debug": false
+    },
+    "webpack.InnerGraphPlugin": {
+      "entries": [],
+      "filteredEntries": 1,
+      "debug": false
+    },
+    "webpack.SideEffectsFlagPlugin": {
+      "entries": [],
+      "filteredEntries": 1,
+      "debug": false
+    },
+    "webpack.FlagDependencyUsagePlugin": {
+      "entries": [],
+      "filteredEntries": 2,
+      "debug": false
+    },
+    "webpack.buildChunkGraph": {
+      "entries": [],
+      "filteredEntries": 13,
+      "debug": false
+    },
+    "webpack.SplitChunksPlugin": {
+      "entries": [],
+      "filteredEntries": 4,
+      "debug": false
+    },
+    "webpack.ModuleConcatenationPlugin": {
+      "entries": [],
+      "filteredEntries": 8,
+      "debug": false
+    },
+    "webpack.FileSystemInfo": {
+      "entries": [],
+      "filteredEntries": 10,
+      "debug": false
+    }
+  },
+  "hash": "8517aa92cf63626ef368",
+  "version": "5.54.0",
+  "time": 16275,
+  "publicPath": "",
+  "outputPath": "E:\\iyouTest\\kh-ssr-dev-demo\\dist",
+  "assetsByChunkName": {
+    "main": ["server-bundle.js", "main_4e6ca4a6.css"],
+    "kh-index": ["434.server-bundle.js", "kh-index_925462e5.css"],
+    "kh-full": ["342.server-bundle.js"]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "vue-ssr-server-bundle.json",
+      "size": 82691,
+      "emitted": true,
+      "comparedForEmit": false,
+      "cached": false,
+      "info": { "size": 82691 },
+      "chunkNames": [],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 3681,
+      "sizes": { "javascript": 3681 },
+      "names": ["kh-full"],
+      "idHints": [],
+      "runtime": ["main"],
+      "files": ["342.server-bundle.js"],
+      "auxiliaryFiles": [],
+      "hash": "473ad6632b34ca6b2170",
+      "childrenByOrder": {},
+      "id": 342,
+      "siblings": [],
+      "parents": [179],
+      "children": [],
+      "origins": [
+        {
+          "module": "E:\\iyouTest\\kh-ssr-dev-demo\\node_modules\\ts-loader\\index.js??clonedRuleSet-2!E:\\iyouTest\\kh-ssr-dev-demo\\client\\routes\\fullRouter\\index.ts",
+          "moduleIdentifier": "E:\\iyouTest\\kh-ssr-dev-demo\\node_modules\\ts-loader\\index.js??clonedRuleSet-2!E:\\iyouTest\\kh-ssr-dev-demo\\client\\routes\\fullRouter\\index.ts",
+          "moduleName": "./client/routes/fullRouter/index.ts",
+          "loc": "5:40-112",
+          "request": "@client/views/full/index.vue",
+          "moduleId": null
+        }
+      ]
+    },
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 16612,
+      "sizes": {
+        "javascript": 10535,
+        "css/mini-extract": 1006,
+        "runtime": 5071
+      },
+      "names": ["main"],
+      "idHints": [],
+      "runtime": ["main"],
+      "files": ["server-bundle.js", "main_4e6ca4a6.css"],
+      "auxiliaryFiles": [],
+      "hash": "96dd7f519b6aef524de7",
+      "childrenByOrder": {},
+      "id": 179,
+      "siblings": [],
+      "parents": [],
+      "children": [342, 434],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "E:\\iyouTest\\kh-ssr-dev-demo\\client\\entry-server.ts"
+        }
+      ]
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 43662.36,
+      "sizes": {
+        "javascript": 28232.36,
+        "asset": 14756,
+        "css/mini-extract": 674
+      },
+      "names": ["kh-index"],
+      "idHints": [],
+      "runtime": ["main"],
+      "files": ["434.server-bundle.js", "kh-index_925462e5.css"],
+      "auxiliaryFiles": ["assets/imgs/kinghiee-icon_611d5f6d.jpeg"],
+      "hash": "0f4bb723f243b58c16fb",
+      "childrenByOrder": {},
+      "id": 434,
+      "siblings": [],
+      "parents": [179],
+      "children": [],
+      "origins": [
+        {
+          "module": "E:\\iyouTest\\kh-ssr-dev-demo\\node_modules\\ts-loader\\index.js??clonedRuleSet-2!E:\\iyouTest\\kh-ssr-dev-demo\\client\\routes\\indexRouter\\index.ts",
+          "moduleIdentifier": "E:\\iyouTest\\kh-ssr-dev-demo\\node_modules\\ts-loader\\index.js??clonedRuleSet-2!E:\\iyouTest\\kh-ssr-dev-demo\\client\\routes\\indexRouter\\index.ts",
+          "moduleName": "./client/routes/indexRouter/index.ts",
+          "loc": "5:40-114",
+          "request": "@client/views/index/index.vue",
+          "moduleId": null
+        }
+      ]
+    }
+  ],
+  "filteredModules": 58,
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [179],
+      "assets": [
+        { "name": "server-bundle.js", "size": -1 },
+        { "name": "main_4e6ca4a6.css", "size": -1 }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": -2,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [179],
+      "assets": [
+        { "name": "server-bundle.js", "size": -1 },
+        { "name": "main_4e6ca4a6.css", "size": -1 }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": -2,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "kh-index": {
+      "name": "kh-index",
+      "chunks": [434],
+      "assets": [
+        { "name": "434.server-bundle.js", "size": -1 },
+        { "name": "kh-index_925462e5.css", "size": -1 }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": -2,
+      "auxiliaryAssets": [
+        { "name": "assets/imgs/kinghiee-icon_611d5f6d.jpeg", "size": -1 }
+      ],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": -1,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "kh-full": {
+      "name": "kh-full",
+      "chunks": [342],
+      "assets": [{ "name": "342.server-bundle.js", "size": -1 }],
+      "filteredAssets": 0,
+      "assetsSize": -1,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": []
+}

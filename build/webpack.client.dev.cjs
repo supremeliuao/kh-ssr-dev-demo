@@ -16,12 +16,12 @@ module.exports = MERGE(WEBPACK_BASE_CONFIG, {
     path: RESOLVE(__dirname, '../dist'),
     publicPath: '/'
   },
-  // cache: {
-  //   type: 'filesystem',
-  //   name: 'devClientCache-development',
-  //   idleTimeoutAfterLargeChanges: 1000,
-  //   maxAge: 604800, // 允许未使用的缓存留在文件系统缓存中的时间
-  // },
+  cache: {
+    type: 'filesystem',
+    name: 'devClientCache-development',
+    idleTimeoutAfterLargeChanges: 1000,
+    maxAge: 604800, // 允许未使用的缓存留在文件系统缓存中的时间
+  },
   module: {
     rules: [
       {

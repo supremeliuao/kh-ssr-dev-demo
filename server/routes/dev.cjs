@@ -58,23 +58,23 @@ const devServerSetup = (cb) => {
 }
 
 let devServerPromise = devServerSetup((serverBundle, options) => {
-    renderer = createBundleRenderer(serverBundle, Object.assign(options, {
-        runInNewContext: false,
-    }))
+  renderer = createBundleRenderer(serverBundle, Object.assign(options, {
+    runInNewContext: false,
+  }))
 });
 
-
 ROUTER.get('*', (req, res) => {
-    const context = {
-        url: req.url
-    };
-    devServerPromise.then(() => {
-        renderer.renderToString(context).then(html => {
-            res.send(html);
-        }).catch(err => {
-            console.log('err',req.url,err);
-        })
+  let context = {
+    url: req.url
+  };
+
+  devServerPromise.then(() => {
+    renderer.renderToString(context).then(html => {
+      res.send(html);
+    }).catch(err => {
+      console.log('err',req.url,err);
     })
+  })
 })
 
 module.exports = ROUTER;
