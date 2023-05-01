@@ -60,8 +60,8 @@
     "build:server": "webpack --config ./build/webpack.server.prod.cjs --progress=profile --json > webpack-server-stats.json",
     "build": "rimraf ./dist && npm run build:client && npm run build:server",
     "start": "cross-env NODE_ENV=production node ./server/index.cjs",
-    "styleguide": "vue-styleguidist server --config styleguidist.config.cjs",
-    "styleguide:build": "vue-styleguidist build --config styleguidist.config.cjs"
+    "styleguide": "cross-env NODE_ENV=development vue-styleguidist server --config styleguidist.config.cjs",
+    "styleguide:build": "cross-env NODE_ENV=production rimraf ./docs && vue-styleguidist build --config styleguidist.config.cjs"
   },
   "lint-staged": {
     "./client/**/*.{vue,ts,tsx,js,jsx}": "eslint",
