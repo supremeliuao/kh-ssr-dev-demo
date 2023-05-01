@@ -63,6 +63,7 @@
     "styleguide:build": "vue-styleguidist build --config styleguidist.config.cjs"
   },
   "lint-staged": {
+    "./client/**/*.{vue,ts,tsx,js,jsx}": "eslint",
     "./client/**/*.{vue,less,css}": "stylelint"
   },
   "dependencies": {
