@@ -1,7 +1,7 @@
 <template>
   <div class="kh-idx">
     <div>
-      kinghiee 修改s
+      kinghiee
       <img src="@client/assets/imgs/index/csdn-logo.png" alt="logo">
     </div>
   </div>
@@ -39,7 +39,7 @@ export default class KhIndex extends Vue {
 <style lang="less" scoped>
 /** @define kh-idx */
 .kh-idx {
-  border: 1px solid red;
+  border: .5px solid red;
 }
 </style>
 

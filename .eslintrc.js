@@ -8,7 +8,6 @@ const IS_STRICT_MODE = (function(){
   return false;
 }());
 
-console.log('13324');
 module.exports = {
   root: true,
   env: {

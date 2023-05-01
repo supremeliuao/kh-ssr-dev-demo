@@ -20,8 +20,8 @@
     "experimentalDecorators": true, // 启用装饰器
     "strictFunctionTypes": false, // 允许编译javascript文件
     "allowJs": true, // 运行编译js
-    "checkJs": true, // 在 .js文件中报告错误
-    "module": "esnext", // 采用的模块系统
+    // "checkJs": true, // 在 .js文件中报告错误
+    "module": "ESNext", // 采用的模块系统
     "target": "es5", // 编译输出目标 ES 版本
     "moduleResolution": "node", // 如何处理模块
     "noEmitOnError": true, // 源文件有错误，不输出编译结果
@@ -29,6 +29,5 @@
     "sourceMap": true,
     "pretty": true,
     "downlevelIteration": true,
-    "skipLibCheck": true
   }
 }
